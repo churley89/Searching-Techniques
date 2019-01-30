@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+/**
+ * Created by Conor on 30/01/2019
+ * Program to implement linear search program
+ */
+
+public class LinearSearch {
+
+    public static void main(String[] args) {
+
+        Scanner kb = new Scanner(System.in);
+
+        printArray(array);
+
+        System.out.println("There are " + numberOfElements + " elements in the array");
+
+        System.out.println("Please enter in a number between 1-100: ");
+        search = kb.nextInt();
+
+        System.out.println("You have chosen the number " + search);
+
+        linearSearch(array, search);
+
+    }//main
+
+    static int array[] = {12, 43, 14, 60, 30, 27, 11};
+
+    static int pos = 0, searchPos = - 1, search;
+    static boolean found = false;
+    static int numberOfElements = array.length;
+
+    public static void linearSearch(int[]A, int s){
+        while ((pos < numberOfElements) && (!found)){
+            if(s == A[pos]) {
+                searchPos = pos;
+                found = true;
+            }//if
+            else
+                pos++;
+        }//while
+
+        if (!found)
+            System.out.println("Number not found");
+        else
+            System.out.println("Number " + s + " found in position " + pos );
+    }//linearSearch();
+
+    public static void printArray(int input[]){//method used to print array
+        for(int i = 0; i < input.length; i++)
+            System.out.println(input[i]);
+    }//printArray();
+
+
+}//class
